@@ -2,4 +2,5 @@ Makefile.PL
 MANIFEST
 README
 lib/HTML/Detoxifier.pm
+t/test.t
 

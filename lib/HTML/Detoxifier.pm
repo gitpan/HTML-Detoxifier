@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-#  HTML::Detoxifier - strips harmful HTML from user input   v0.01 - 02/08/2004
+#  HTML::Detoxifier - strips harmful HTML from user input   v0.02 - 03/01/2004
 #
 #  Copyright (c) 2004 Patrick Walton <pwalton@metajournal.net>
 #  but freely redistributable under the same terms as Perl itself.
@@ -23,13 +23,14 @@ HTML::Detoxifier - practical module to strip harmful HTML
 
 =head1 SYNOPSIS
 
-use HTML::Detoxifier qw<detoxify>;
-
-my $clean_html = detoxify $html;
-
-my $cleaner_html = detoxify($html, disallow => [qw(dynamic images document)]);
-
-my $stripped_html = detoxify($html, disallow => [qw(everything)]);
+	use HTML::Detoxifier qw<detoxify>;
+	
+	my $clean_html = detoxify $html;
+	
+	my $cleaner_html = detoxify($html, disallow =>
+		[qw(dynamic images document)]);
+	
+	my $stripped_html = detoxify($html, disallow => [qw(everything)]);
 
 =head1 DESCRIPTION
 
@@ -37,17 +38,18 @@ HTML::Detoxifier is a practical module to remove harmful tags from HTML input.
 It's intended to be used for web sites that accept user input in the form of
 HTML and then present that information in some form.
 
-Accepting all HTML from untrusted users is generally a very bad idea, and HTML
-should always be run through some kind of filter before being presented to end
-users. Cross-site scripting (XSS) vulnerabilities are rampant without a filter.
-The most common HTML vulnerability lies in stealing users' login cookies.
+Accepting all HTML from untrusted users is generally a very bad idea;
+typically, all HTML should be run through some kind of filter before being
+presented to end users. Cross-site scripting (XSS) vulnerabilities can run
+rampant without a filter. The most common and obvious HTML vulnerability lies
+in stealing users' login cookies through JavaScript.
 
 Unlike other modules, HTML::Detoxifier is intended to be a practical solution
-that abstracts away all the specifics of whitelisting certain tags quickly,
-easily, and, most importantly, securely. Tags are divided into groups, and each
-group can be disallowed. Additionally, HTML::Detoxifier knows how to clean
-inline CSS; with HTML::Detoxifier, you can securely allow users to use style
-sheets without allowing cross-site scripting vulnerabilities. (Yes, it is
+that abstracts away all the specifics of whitelisting certain tags easily 
+and securely. Tags are divided into functional groups, each of which can be
+disallowed or allowed as you wish. Additionally, HTML::Detoxifier knows how to
+clean inline CSS; with HTML::Detoxifier, you can securely allow users to use
+style sheets without allowing cross-site scripting vulnerabilities. (Yes, it is
 possible to execute JavaScript from CSS!)
 
 In addition to this main purpose, HTML::Detoxifier cleans up some common
@@ -237,7 +239,7 @@ Markup that creates images.
 
 =head2 annoying
 
-Markup that creates effects undesirable by the majority of web users
+Markup that creates "annoying" effects undesirable by the majority of web users
 (marquee, blink). 
 
 =head2 dynamic

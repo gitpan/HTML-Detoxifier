@@ -1,4 +1,4 @@
-HTML::Detoxifier 0.01
+HTML::Detoxifier 0.02
 ---------------------
 
 NAME
@@ -10,18 +10,19 @@ DESCRIPTION
 	the form of HTML and then present that information in some form.
 
 	Unlike other modules, HTML::Detoxifier is intended to be a practical
-	solution that abstracts away all the specifics of whitelisting certain
-	tags quickly, easily, and, most importantly, securely. Tags are divided
-	into groups, and each group can be disallowed. Additionally,
-	HTML::Detoxifier knows how to clean inline CSS; with HTML::Detoxifier, you
-	can securely allow users to use style sheets without allowing cross-site
-	scripting vulnerabilities.
+	solution that abstracts away all the specifics of whitelisting certain tags
+	easily and securely. Tags are divided into functional groups, each of which
+	can be disallowed or allowed as you wish. Additionally, HTML::Detoxifier
+	knows how to clean inline CSS; with HTML::Detoxifier, you can securely
+	allow users to use style sheets without allowing cross-site scripting
+	vulnerabilities.
 
 INSTALLATION
 	The standard drill.
 
 	perl Makefile.PL
 	make
+	make test
 	make install
 
 DEPENDENCIES
