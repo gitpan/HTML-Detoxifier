@@ -1,0 +1,5 @@
+Makefile.PL
+MANIFEST
+README
+lib/HTML/Detoxifier.pm
+
